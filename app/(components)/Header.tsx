@@ -38,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="p-4 shadow-md  flex items-center  w-full bg-transparent font-Raleway rounded-b-lg z-30 backdrop-blur-[2px] fixed top-0">
+    <nav className="p-4  flex items-center  w-full bg-transparent font-Raleway rounded-b-lg z-30 ">
       <div className="flex items-center  gap-x-5 w-full max-w-[88rem] m-auto justify-between">
         <div className="flex gap-x-20 items-center">
           <Link href="/" className="flex items-center gap-x-2">
