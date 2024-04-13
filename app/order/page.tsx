@@ -8,6 +8,9 @@ import axios from "axios";
 const Page = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cart, setCart] = useState(() => {
+    if (typeof window === "undefined") {
+      return {};
+    }
     const localCart = localStorage.getItem("cart");
     return localCart ? JSON.parse(localCart) : [];
   });
@@ -23,16 +26,16 @@ const Page = () => {
     address: "",
   });
 
-  function searchFood(event) {
+  function searchFood(event: any) {
     setSearchTerm(event.target.value);
   }
 
-  function filterByCategory(category) {
+  function filterByCategory(category: any) {
     setSelectedCategory(category);
   }
 
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside(event: any) {
       if (cartRef.current && !cartRef.current.contains(event.target)) {
         setCartVisible(false);
       }
@@ -52,13 +55,15 @@ const Page = () => {
   }, [cart]);
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart"));
-    if (storedCart) {
-      setCart(storedCart);
+    if (typeof window !== "undefined") {
+      const storedCart = JSON.parse(localStorage.getItem("cart"));
+      if (storedCart) {
+        setCart(storedCart);
+      }
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
     }
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
   }, []);
 
   const addToCart = (food) => {
