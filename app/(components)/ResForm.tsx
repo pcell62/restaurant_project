@@ -194,6 +194,7 @@ const ResForm = () => {
             <div className="w-full flex flex-col">
               <FaConciergeBell className=" text-2xl m-auto" />
               <p>Reserve Table</p>
+              {loading && <p className="animate-pulse">Processing...</p>}
             </div>
           </button>
         </div>
