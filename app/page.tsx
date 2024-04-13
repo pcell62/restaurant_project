@@ -110,7 +110,7 @@ const Page = () => {
         <h2 className="text-3xl font-semibold text-center mb-6">
           Some of our most popular delicacies
         </h2>
-        <div className="grid grid-cols-3 gap-8">
+        <div className="flex flex-wrap gap-8 justify-around">
           {indianFoods.map((food, index) => (
             <RestaurantCard
               key={index}
