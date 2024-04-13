@@ -18,7 +18,7 @@ const Header = () => {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 h-screen">
         <div className="bg-white p-8 rounded-md shadow-md">
-          <h2 className="text-2xl font-semibold mb-4">About Us</h2>
+          <h2 className="text-2xl font-semibold mb-4 w-[600px]">About Us</h2>
           <p>
             BigBites is a restaurant that offers a wide range of mouthwatering
             delights, from traditional classics to innovative creations. Savor
