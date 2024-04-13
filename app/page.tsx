@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import ResForm from "./(components)/ResForm";
 import { FaArrowRight } from "react-icons/fa";
 import RestaurantCard from "./(components)/ResturantCard";
+import Link from "next/link";
 
 const Page = () => {
   const indianFoods = [
@@ -72,9 +73,11 @@ const Page = () => {
             of taste that&apos;s bound to leave you craving for more.
           </div>
           <div className="py-10">
-            <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
-              View our Menu <FaArrowRight />
-            </button>
+            <Link href="/menu">
+              <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
+                View our Menu <FaArrowRight />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col w-1/2 p-5">
