@@ -1,113 +1,125 @@
-import Image from "next/image";
+"use client";
+import React, { useState, useEffect } from "react";
 
-export default function Home() {
+import ResForm from "./(components)/ResForm";
+import { FaArrowRight } from "react-icons/fa";
+import RestaurantCard from "./(components)/ResturantCard";
+
+const Page = () => {
+  const indianFoods = [
+    {
+      name: "Butter Chicken",
+      description:
+        "A classic Indian dish made with tender chicken cooked in a creamy tomato sauce.",
+      image:
+        "https://www.177milkstreet.com/assets/site/Recipes/_large/Butter-Chicken.jpg",
+    },
+    {
+      name: "Palak Paneer",
+      description:
+        "A vegetarian dish consisting of paneer (Indian cheese) in a thick paste made from puréed spinach.",
+      image:
+        "https://healthynibblesandbits.com/wp-content/uploads/2020/01/Saag-Paneer-FF.jpg",
+    },
+    {
+      name: "Biryani",
+      description:
+        "A fragrant rice dish cooked with Indian spices, meat (such as chicken or lamb), and vegetables.",
+      image:
+        "https://i.pinimg.com/736x/29/a2/50/29a250fef4c1e5190dc14da037ca751f.jpg",
+    },
+  ];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    "https://wallpapers.com/images/hd/classy-butter-chicken-platter-indian-food-s8a8b9aojk6kqoz0.jpg",
+    "https://c4.wallpaperflare.com/wallpaper/559/564/946/cuisine-food-india-indian-wallpaper-preview.jpg",
+    "https://w0.peakpx.com/wallpaper/35/401/HD-wallpaper-upcoming-restaurants-across-the-north-and-south-carolina-eater-carolinas-north-indian-food.jpg",
+    "https://c4.wallpaperflare.com/wallpaper/51/214/360/cuisine-food-india-indian-wallpaper-preview.jpg",
+    "https://wallpapers.com/images/hd/healthy-traditional-indian-food-photograph-ajzozfovviyc3sic.jpg",
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [images.length]);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <div className="mt-20 p-6">
+      <div className="relative">
+        <img
+          src={images[currentImageIndex]}
+          alt="food-banner"
+          className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter blur-[2px]"
+        />
+        <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-6  backdrop-blur-2xl shadow-2xl rounded-2xl ">
+          <div className=" font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide">
+            Let us serve you <br />
+            better
+          </div>
+        </div>
+        <ResForm />
+      </div>
+      <div className="flex p-7 mt-5">
+        <div className="w-1/2 p-5">
+          <div className=" text-xl font-Raleway tracking-tight backdrop-blur-sm">
+            BigBites: Where Flavor Meets Adventure. Explore our culinary world
+            of mouthwatering delights, from traditional classics to innovative
+            creations. Savor the essence of diverse cuisines crafted with
+            passion and served with a side of excitement. Join us on a journey
+            of taste that's bound to leave you craving for more.
+          </div>
+          <div className="py-10">
+            <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
+              View our Menu <FaArrowRight />
+            </button>
+          </div>
+        </div>
+        <div className="flex flex-col w-1/2 p-5">
+          <div>
+            <img
+              src="https://niksharmacooks.com/wp-content/uploads/2022/11/ButterChickenDSC_5616.jpg"
+              alt="buuter-chicken"
+              className="rounded-t-3xl"
             />
-          </a>
+          </div>
+          <div className="flex">
+            <div className="w-1/2">
+              <img
+                src="https://www.vegrecipesofindia.com/wp-content/uploads/2014/05/idli-sambar-1.jpg"
+                alt="idli-sambar"
+                className="rounded-bl-3xl"
+              />
+            </div>
+            <div className="w-1/2">
+              <img
+                src="https://www.cookwithmanali.com/wp-content/uploads/2018/05/Best-Pav-Bhaji-Recipe-500x500.jpg"
+                alt="pav-bhaji"
+                className="rounded-br-3xl"
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="container mx-auto px-4 py-8">
+        <h2 className="text-3xl font-semibold text-center mb-6">
+          Some of our most popular delicacies
+        </h2>
+        <div className="grid grid-cols-3 gap-8">
+          {indianFoods.map((food, index) => (
+            <RestaurantCard
+              key={index}
+              name={food.name}
+              description={food.description}
+              image={food.image}
+            />
+          ))}
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default Page;
