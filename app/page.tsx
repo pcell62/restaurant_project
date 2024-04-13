@@ -69,7 +69,7 @@ const Page = () => {
             of mouthwatering delights, from traditional classics to innovative
             creations. Savor the essence of diverse cuisines crafted with
             passion and served with a side of excitement. Join us on a journey
-            of taste that's bound to leave you craving for more.
+            of taste that&apos;s bound to leave you craving for more.
           </div>
           <div className="py-10">
             <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">

@@ -24,7 +24,10 @@ const ResForm = () => {
   const handleMakeReservation = async () => {
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5500/reservation", newRes);
+      const res = await axios.post(
+        "https://resturant-project.onrender.com/reservation",
+        newRes
+      );
       console.log(res.data);
       setReservationUid(res.data._id);
       setLoading(false);

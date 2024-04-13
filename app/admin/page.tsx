@@ -24,7 +24,9 @@ const Admin = () => {
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const response = await axios.get("http://localhost:5500/reservation");
+        const response = await axios.get(
+          "https://resturant-project.onrender.com/reservation"
+        );
         setReservations(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -35,7 +37,9 @@ const Admin = () => {
 
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:5500/order");
+        const response = await axios.get(
+          "https://resturant-project.onrender.com/order"
+        );
         setOrders(response.data.data);
         setLoading(false);
       } catch (error) {
@@ -53,7 +57,7 @@ const Admin = () => {
 
   const handleDone = async (id) => {
     try {
-      await axios.put(`http://localhost:5500/order/${id}`);
+      await axios.put(`https://resturant-project.onrender.com/order/${id}`);
 
       setOrders(
         orders.map((order) =>
@@ -67,7 +71,9 @@ const Admin = () => {
 
   const handleResDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5500/reservation/${id}`);
+      await axios.delete(
+        `https://resturant-project.onrender.com/reservation/${id}`
+      );
       setReservations(
         reservations.filter((reservation) => reservation._id !== id)
       );
@@ -78,7 +84,7 @@ const Admin = () => {
 
   const handleOrderDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5500/order/${id}`);
+      await axios.delete(`https://resturant-project.onrender.com/order/${id}`);
       setOrders(orders.filter((order) => order._id !== id));
     } catch (error) {
       console.error("Error deleting order:", error);
@@ -87,7 +93,9 @@ const Admin = () => {
 
   const handleDoneRes = async (id) => {
     try {
-      await axios.put(`http://localhost:5500/reservation/${id}`);
+      await axios.put(
+        `https://resturant-project.onrender.com/reservation/${id}`
+      );
 
       setReservations(
         reservations.map((reservation) =>

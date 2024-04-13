@@ -53,7 +53,7 @@ export const doneOrder = async (req, res) => {
   const orderId = req.params.orderId; // Assuming orderId is passed as a parameter
 
   try {
-    // Find the order by orderId and update its status to 'completed'
+    // Find the order by orderId and update its status to
     const updatedOrder = await Order.findByIdAndUpdate(
       orderId,
       { status: "Completed" },

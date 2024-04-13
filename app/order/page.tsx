@@ -122,13 +122,16 @@ const Page = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5500/order", {
-        userName: userData.name,
-        email: userData.email,
-        address: userData.address,
-        items: Object.values(cart), // Sending an array of items
-        totalPrice: getTotalPrice(), // Sending total price
-      });
+      const response = await axios.post(
+        "https://resturant-project.onrender.com/order",
+        {
+          userName: userData.name,
+          email: userData.email,
+          address: userData.address,
+          items: Object.values(cart), // Sending an array of items
+          totalPrice: getTotalPrice(), // Sending total price
+        }
+      );
 
       // Display the order_id in a popup
       alert(`Order placed successfully! Order ID: ${response.data._id}`);
