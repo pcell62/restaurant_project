@@ -79,6 +79,13 @@ const ResForm = () => {
   return (
     <form onSubmit={someFunc}>
       <div className="text-black absolute top-1/2 right-20 -translate-y-1/2 p-6 bg-white rounded-2xl max-w-[25rem]">
+        {loading && (
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div className="spinner-border text-brown" role="status">
+              <span className="sr-only">Loading...</span>
+            </div>
+          </div>
+        )}
         <p className="text-2xl font-bold p-2">Let us serve you better</p>
         <p className="text-gray-500 p-2">
           Don’t wait in a line to enjoy your meal. Reserve a table in advance
