@@ -26,6 +26,8 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+app.get("/", (req, res) => {
+  res.send("Welcome to the restaurant API");
+});
 app.use("/reservation", reservationRoutes);
 app.use("/order", orderRoutes);
