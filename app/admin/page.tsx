@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ClipLoader from "../(components)/ClipLoader";
 
 const Admin = () => {
   const [viewMode, setViewMode] = useState("reservations");
@@ -172,7 +173,7 @@ const Admin = () => {
                   className="bg-green-500 text-white px-3 py-1 rounded mt-2"
                   onClick={() => handleDoneRes(reservation._id)}
                 >
-                  Mark as Completed
+                  Mark as Completed {loading && <ClipLoader />}
                 </button>
               </div>
             ))}
@@ -203,7 +204,7 @@ const Admin = () => {
                   className="bg-red-500 text-white px-3 py-1 rounded mt-2 ml-2"
                   onClick={() => handleResDelete(reservation._id)}
                 >
-                  Delete
+                  Delete {loading && <ClipLoader />}
                 </button>
               </div>
             ))}
@@ -237,7 +238,7 @@ const Admin = () => {
                   className="bg-green-500 text-white px-3 py-1 rounded mt-2"
                   onClick={() => handleDone(order._id)}
                 >
-                  Mark as Done
+                  Mark as Done {loading && <ClipLoader />}
                 </button>
                 <h3 className="text-lg font-semibold mt-4 mb-2">Items:</h3>
                 <ul className="list-disc pl-6">
@@ -285,7 +286,7 @@ const Admin = () => {
                   className="bg-red-500 text-white px-3 py-1 rounded mt-2"
                   onClick={() => handleOrderDelete(order._id)}
                 >
-                  Delete
+                  Delete {loading && <ClipLoader />}
                 </button>
               </div>
             ))}
