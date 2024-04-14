@@ -5,6 +5,7 @@ import ResForm from "./(components)/ResForm";
 import { FaArrowRight } from "react-icons/fa";
 import RestaurantCard from "./(components)/ResturantCard";
 import Link from "next/link";
+import Image from "next/image";
 
 const Page = () => {
   const indianFoods = [
@@ -55,11 +56,18 @@ const Page = () => {
           alt="food-banner"
           className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter blur-[2px]"
         />
-        <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-6  backdrop-blur-2xl shadow-2xl rounded-2xl ">
-          <div className=" font-bold text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide">
-            Let us serve you <br />
-            better
+        <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-8 pl-14 z-10">
+          <div className=" font-bold text-black drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide font-Raleway italic underline">
+            Let us serve <div className="h-[20px]"></div>
+            you better
           </div>
+        </div>
+        <div className="text-6xl  absolute top-1/2 left-5 -translate-y-1/2 h-[600px] w-[600px]">
+          <img
+            src="/heroShow-r.png"
+            alt="hero-show"
+            className="h-full w-full"
+          />
         </div>
         <ResForm />
       </div>
