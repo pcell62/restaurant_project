@@ -78,10 +78,10 @@ const Footer = () => {
           <p>&copy; 2024 BigBites Restaurant. All rights reserved.</p>
         </div>
         <div className="flex items-center h-full gap-x-6 text-3xl w-fit my-4">
-          <BsInstagram />
-          <BsTwitter />
-          <BsFacebook />
-          <BsYoutube />
+          <BsInstagram className="hover:text-black hover:cursor-pointer hover:scale-110 transition duration-500" />
+          <BsTwitter className="hover:text-black hover:cursor-pointer hover:scale-110 transition duration-500" />
+          <BsFacebook className="hover:text-black hover:cursor-pointer hover:scale-110 transition duration-500" />
+          <BsYoutube className="hover:text-black hover:cursor-pointer hover:scale-110 transition duration-500" />
         </div>
       </div>
     </footer>
