@@ -77,8 +77,8 @@ const ResForm = () => {
   };
 
   return (
-    <form onSubmit={someFunc}>
-      <div className="text-black absolute top-1/2 right-20 -translate-y-1/2 p-6 bg-white rounded-2xl max-w-[25rem]">
+    <form onSubmit={someFunc} className="w-full">
+      <div className="text-black md:absolute md:top-1/2 md:right-20 md:-translate-y-1/2 p-6 bg-white rounded-2xl max-w-[25rem]">
         {loading && (
           <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <div className="spinner-border text-brown" role="status">

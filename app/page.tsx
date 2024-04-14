@@ -54,15 +54,15 @@ const Page = () => {
         <img
           src={images[currentImageIndex]}
           alt="food-banner"
-          className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter blur-[2px]"
+          className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter blur-[2px] hidden md:block"
         />
-        <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-8 pl-14 z-10">
-          <div className=" font-bold text-black drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide font-Raleway italic underline">
+        <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-8 pl-14 z-10 hidden md:block">
+          <div className=" font-bold text-black drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide font-Raleway italic ">
             Let us serve <div className="h-[20px]"></div>
             you better
           </div>
         </div>
-        <div className="text-6xl  absolute top-1/2 left-5 -translate-y-1/2 h-[600px] w-[600px]">
+        <div className="text-6xl  absolute top-1/2 left-5 -translate-y-1/2 h-[600px] w-[600px] hidden md:block">
           <img
             src="/heroShow-r.png"
             alt="hero-show"
@@ -72,8 +72,8 @@ const Page = () => {
         <ResForm />
       </div>
       <div className="flex p-7 mt-5">
-        <div className="w-1/2 p-5">
-          <div className=" text-xl font-Raleway tracking-tight backdrop-blur-sm">
+        <div className="w-1/2 p-5 w-full">
+          <div className=" text-xl font-Raleway tracking-tight backdrop-blur-sm ">
             BigBites: Where Flavor Meets Adventure. Explore our culinary world
             of mouthwatering delights, from traditional classics to innovative
             creations. Savor the essence of diverse cuisines crafted with
@@ -88,7 +88,7 @@ const Page = () => {
             </Link>
           </div>
         </div>
-        <div className="flex flex-col w-1/2 p-5">
+        <div className="md:flex md:flex-col md:w-1/2 md:p-5 hidden">
           <div>
             <img
               src="https://niksharmacooks.com/wp-content/uploads/2022/11/ButterChickenDSC_5616.jpg"

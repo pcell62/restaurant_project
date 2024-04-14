@@ -31,8 +31,8 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#a86a44] text-white">
-      <div className="max-w-[88rem] m-auto flex py-8 items-center justify-around">
-        <div className="flex flex-col items-center h-full space-y-7">
+      <div className="max-w-[88rem] m-auto md:flex py-8 items-center md:justify-around justify-center">
+        <div className="flex flex-col items-center h-full space-y-7 my-4">
           <p>About us</p>
           <p className="mb-4">Terms and Policies</p>
           <button
@@ -69,7 +69,7 @@ const Footer = () => {
             </div>
           )}
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center my-4">
           <h3 className="text-2xl font-bold mb-4 samarakan">
             BigBites Restaurant
           </h3>
@@ -77,7 +77,7 @@ const Footer = () => {
           <p className="mb-4">Phone: 123-456-7890</p>
           <p>&copy; 2024 BigBites Restaurant. All rights reserved.</p>
         </div>
-        <div className="flex items-center h-full gap-x-6 text-3xl w-fit">
+        <div className="flex items-center h-full gap-x-6 text-3xl w-fit my-4">
           <BsInstagram />
           <BsTwitter />
           <BsFacebook />
