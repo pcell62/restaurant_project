@@ -54,7 +54,7 @@ const Page = () => {
         <img
           src={images[currentImageIndex]}
           alt="food-banner"
-          className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter blur-[2px] hidden md:block"
+          className="w-full rounded-2xl h-[80vh] bg-no-repeat brightness-60 filter hidden md:block"
         />
         <div className="text-6xl  absolute top-1/2 left-20 -translate-y-1/2 p-8 pl-14 z-10 hidden md:block">
           <div className=" font-bold text-black drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.9)] tracking-wide font-Raleway italic ">
