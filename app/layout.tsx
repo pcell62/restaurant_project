@@ -9,6 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>BigBites</title>
+      </head>
       <body className="absolute inset-0 h-full w-full bg-[#ddbfad] bg-[radial-gradient(#a86a44_1px,transparent_1px)] [background-size:16px_16px]">
         <Header />
         <div className="max-w-[88rem] m-auto">{children}</div>

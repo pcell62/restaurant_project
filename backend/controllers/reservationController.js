@@ -6,7 +6,8 @@ export const makeReservation = async (req, res) => {
     !req.body.name ||
     !req.body.mobileNumber ||
     !req.body.date ||
-    !req.body.session
+    !req.body.session ||
+    !req.body.numberOfPeople
   ) {
     return res.status(400).json({ message: "All fields are required." });
   }
@@ -16,6 +17,7 @@ export const makeReservation = async (req, res) => {
     mobileNumber: req.body.mobileNumber,
     date: req.body.date,
     session: req.body.session,
+    numberOfPeople: req.body.numberOfPeople,
   });
 
   try {

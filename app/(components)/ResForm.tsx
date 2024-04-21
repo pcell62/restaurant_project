@@ -13,12 +13,14 @@ const ResForm = () => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [reservationUid, setReservationUid] = useState("");
+  const [numberOfPeople, setNumberOfPeople] = useState(1);
 
   const newRes = {
     name: name,
     mobileNumber: mobileNumber,
     date: date.toDateString(),
     session: session,
+    numberOfPeople: numberOfPeople,
   };
 
   const handleMakeReservation = async () => {
@@ -116,6 +118,19 @@ const ResForm = () => {
             {mobileErrorMessage && (
               <div className="text-sm text-red-800"> {mobileErrorMessage}</div>
             )}
+          </div>
+          <div className="p-2">
+            <input
+              type="number"
+              placeholder="Number of people"
+              className="p-2 w-full border border-slate-900 rounded-full outline-none"
+              required
+              onChange={(e) => {
+                setNumberOfPeople(parseInt(e.target.value));
+              }}
+              max={8}
+              title="Maximum 8 people allowed per reservation, for more people please contact us."
+            />
           </div>
           <div className="p-2">
             <p className="text-lg">Date</p>

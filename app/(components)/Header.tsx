@@ -55,12 +55,17 @@ const Header = () => {
           >
             About us
           </button>
-
+          <Link href="/location">
+            <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
+              Location
+            </button>
+          </Link>
           <Link href="/menu">
             <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
               Today&apos;s Menu
             </button>
           </Link>
+
           <Link href="/order">
             <button className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider">
               Order Online

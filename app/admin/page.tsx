@@ -167,6 +167,9 @@ const Admin = () => {
                 </p>
                 <p className="text-gray-600">{reservation.mobileNumber}</p>
                 <p className="text-gray-600">
+                  Number Of People : {reservation.numberOfPeople}
+                </p>
+                <p className="text-gray-600">
                   {reservation.date} - {reservation.session}
                 </p>
                 <button
@@ -196,6 +199,9 @@ const Admin = () => {
                   Reservation ID: {reservation._id}
                 </p>
                 <p className="text-gray-600">{reservation.mobileNumber}</p>
+                <p className="text-gray-600">
+                  Number Of People : {reservation.numberOfPeople}
+                </p>
                 <p className="text-gray-600">
                   {reservation.date} - {reservation.session}
                 </p>
