@@ -23,6 +23,12 @@ const Admin = () => {
   };
 
   useEffect(() => {
+    const secretKey = localStorage.getItem("adminSecretKey"); // Get secret key from local storage
+    if (secretKey !== "hello123") {
+      // If secret key is not present or doesn't match, redirect to homepage
+      window.location.href = "/";
+      return;
+    }
     const fetchReservations = async () => {
       try {
         const response = await axios.get(

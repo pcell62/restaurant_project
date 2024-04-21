@@ -21,6 +21,9 @@ const Footer = () => {
 
   const handleVerifySecretKey = () => {
     if (secretKey === "hello123") {
+      // Store the secret key in local storage
+      localStorage.setItem("adminSecretKey", secretKey);
+
       // Redirect to admin page
       window.location.href = "/admin";
     } else {
