@@ -62,6 +62,11 @@ const Admin = () => {
     }
   }, [viewMode]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("adminSecretKey"); // Remove secret key from local storage
+    window.location.href = "/"; // Redirect to homepage
+  };
+
   const handleDone = async (id) => {
     try {
       await axios.put(`https://resturant-project.onrender.com/order/${id}`);
@@ -151,7 +156,14 @@ const Admin = () => {
         >
           Orders
         </button>
+        <button
+          className="bg-red-500 text-white px-3 py-1 rounded"
+          onClick={handleLogout}
+        >
+          Logout as Admin
+        </button>
       </div>
+
       <div className="mt-4">
         <h1 className="text-4xl font-Raleway font-bold my-10">
           {viewMode === "reservations" ? "Reservations" : "Orders"}

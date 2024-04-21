@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from "react-icons/bs";
 
@@ -36,7 +37,9 @@ const Footer = () => {
     <footer className="bg-[#a86a44] text-white">
       <div className="max-w-[88rem] m-auto md:flex py-8 items-center md:justify-around justify-center">
         <div className="flex flex-col items-center h-full space-y-7 my-4">
-          <p>About us</p>
+          <Link href="/contact">
+            <p>Contact Us</p>
+          </Link>
           <p className="mb-4">Terms and Policies</p>
           <button
             onClick={handleAdminLinkClick}
