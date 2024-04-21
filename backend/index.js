@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import reservationRoutes from "./routes/reservationRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import queryRoutes from "./routes/queryRoutes.js";
 
 const app = express();
 
@@ -31,3 +32,4 @@ app.get("/", (req, res) => {
 });
 app.use("/reservation", reservationRoutes);
 app.use("/order", orderRoutes);
+app.use("/query", queryRoutes);
