@@ -32,11 +32,16 @@ const page = () => {
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
       <div className="max-w-md w-full px-6 py-8 bg-white shadow-md rounded-md">
-        <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+        <h2 className="text-2xl font-bold mb-4">Contact Us at</h2>
+        <div className="pb-6">
+          <p>Email - bigbites@bigbites.com</p>
+          <p>Mobile - xxxxxxxxxx</p>
+          <p className="font-bold">Or, leave a query below</p>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 text-sm font-bold mb-2 "
               htmlFor="mobile"
             >
               Mobile Number
