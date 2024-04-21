@@ -40,3 +40,31 @@ export const getQueries = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+export const resolveQuery = async (req, res) => {
+  try {
+    // Find the query by ID and update its status to "Resolved"
+    const query = await Query.findByIdAndUpdate(
+      req.params.id,
+      { status: "Resolved" },
+      { new: true }
+    );
+
+    // Respond with the updated query
+    return res.status(200).json(query);
+  } catch (error) {
+    // Handle any errors that occur during the update process
+    return res.status(500).json({ message: error.message });
+  }
+};
+
+export const deleteQuery = async (req, res) => {
+  try {
+    // Find the query by ID and delete it
+    const deletedQuery = await Query.findByIdAndDelete(req.params.id);
+    return res.status(200).json(deletedQuery);
+  } catch (error) {
+    // Handle any errors that occur during the deletion process
+    return res.status(500).json({ message: error.message });
+  }
+};
