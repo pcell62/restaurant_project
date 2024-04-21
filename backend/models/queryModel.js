@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const querySchema = new mongoose.Schema(
   {
-    mobileNumer: {
+    mobileNumber: {
       type: String,
       required: true,
     },
