@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
+import axios from "axios";
 
 const page = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
   const [query, setQuery] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const queryData = {
     mobileNumber,
@@ -14,6 +16,17 @@ const page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
+    axios
+      .post("https://resturant-project.onrender.com/query", queryData)
+      .then((res) => {
+        alert("Query submitted successfully");
+        setLoading(false);
+      })
+      .catch((err) => {
+        alert("Something went wrong");
+        setLoading(false);
+      });
   };
 
   return (
@@ -35,6 +48,8 @@ const page = () => {
               placeholder="Enter your mobile number"
               onChange={(e) => setMobileNumber(e.target.value)}
               required
+              min={1000000000}
+              max={9999999999}
             />
           </div>
           <div className="mb-4">
