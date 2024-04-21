@@ -22,6 +22,8 @@ pnpm run dev
 
 ```
 
+Then we can visit localhost:3000 on our browser to visit the webiste.
+
 
 This website has many features including making reservations, placing orders, posting queries and admin dashboard.
 
