@@ -4,97 +4,84 @@ import { MenuList } from "../order/data";
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
-  const [viewMode, setViewMode] = useState("detailed"); // Default view mode is detailed
+  const [viewMode, setViewMode] = useState("detailed");
 
   useEffect(() => {
-    const fetchData = async () => {
-      // Simulating fetching menu items
-      setMenuItems(MenuList);
-    };
-
-    fetchData();
+    setMenuItems(MenuList);
   }, []);
 
-  // Group menu items by category
   const groupedMenuItems = menuItems.reduce((acc, item) => {
     acc[item.category] = [...(acc[item.category] || []), item];
     return acc;
   }, {});
 
-  const toggleViewMode = () => {
-    setViewMode(viewMode === "detailed" ? "compact" : "detailed");
-  };
-
   return (
-    <div className="my-24">
-      <main className=" mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">Menu</h1>
-        <div className="flex justify-center mb-4">
-          <button
-            className="flex justify-center items-center gap-2  h-12 cursor-pointer rounded-md shadow-2xl text-white font-semibold bg-[#a86a44]  hover:shadow-xl p-2 tracking-wider"
-            onClick={toggleViewMode}
-          >
-            {viewMode === "detailed" ? "Compact" : "Detailed"}
-          </button>
-        </div>
-        {viewMode === "detailed" && (
-          <div className="grid grid-cols-1 gap-6">
-            {Object.entries(groupedMenuItems).map(([category, items]) => (
-              <div key={category} className="mb-6">
-                <h2 className="text-2xl font-semibold mb-2">{category}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {items.map((item, index) => (
-                    <div
-                      className="flex items-center border-2 rounded-lg border-black backdrop-blur-sm"
-                      key={index}
-                    >
-                      <div className="bg-transparent  flex items-center w-1/2">
-                        <div className="p-6">
-                          <h3 className="text-lg font-semibold mb-2">
-                            {item.name}
-                          </h3>
-                          <p className="text-gray-700 font-bold">
-                            {item.price}
-                          </p>
-                          <p className="text-gray-700">Serves: {item.serves}</p>
-                        </div>
-                      </div>
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-auto"
-                        style={{ maxHeight: "200px" }}
-                      />
+    <div className="my-24 mx-auto max-w-6xl px-4">
+      <h1 className="text-4xl font-bold text-center mb-6">Menu</h1>
+      <div className="flex justify-center mb-6">
+        <button
+          className="px-6 py-3 rounded-lg shadow-lg text-white font-semibold bg-[#a86a44] hover:bg-[#8b5633] transition"
+          onClick={() =>
+            setViewMode(viewMode === "detailed" ? "compact" : "detailed")
+          }
+        >
+          {viewMode === "detailed" ? "Compact View" : "Detailed View"}
+        </button>
+      </div>
+
+      {viewMode === "detailed" ? (
+        <div className="grid gap-8">
+          {Object.entries(groupedMenuItems).map(([category, items]) => (
+            <div key={category}>
+              <h2 className="text-2xl font-semibold mb-4 border-b pb-2">
+                {category}
+              </h2>
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col bg-white shadow-md rounded-lg overflow-hidden"
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold">{item.name}</h3>
+                      <p className="text-gray-700 font-bold">₹{item.price}</p>
+                      <p className="text-gray-600 text-sm">
+                        Serves: {item.serves}
+                      </p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
-        {viewMode === "compact" && (
-          <div className="flex flex-wrap gap-12 justify-center p-6">
-            {Object.entries(groupedMenuItems).map(([category, items]) => (
-              <div key={category} className="mb-6 w-[400px] border-black">
-                <h2 className="text-3xl font-semibold mb-2">{category}</h2>
-                <ul>
-                  {items.map((item, index) => (
-                    <li
-                      key={index}
-                      className="flex justify-between border-b-2 border-slate-700 py-2"
-                    >
-                      <span className="text-lg">{item.name}</span>
-                      <span className="text-gray-700 font-bold">
-                        {item.price}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        )}
-      </main>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(groupedMenuItems).map(([category, items]) => (
+            <div key={category} className="bg-white shadow-md p-4 rounded-lg">
+              <h2 className="text-xl font-semibold mb-3 border-b pb-2">
+                {category}
+              </h2>
+              <ul className="space-y-2">
+                {items.map((item, index) => (
+                  <li
+                    key={index}
+                    className="flex justify-between text-gray-700 font-medium"
+                  >
+                    <span>{item.name}</span>
+                    <span className="font-bold">₹{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

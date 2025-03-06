@@ -172,7 +172,7 @@ export const MenuList = [
     category: "Desserts",
     serves: 1,
     image:
-      "https://api.vip.foodnetwork.ca/wp-content/uploads/2023/03/kheer-feat.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXVQ3lsQnQeb6sZy1unNrAMJBJOtgD9RLm5w&s",
   },
   {
     name: "Raita",
